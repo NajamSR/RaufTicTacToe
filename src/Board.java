@@ -11,15 +11,15 @@ public class Board {
     private Square sqr9;
 
     public Board() {
-        sqr1 = new Square(" ");
-        sqr2 = sqr1;
-        sqr3 = sqr1;
-        sqr4 = sqr1;
-        sqr5 = sqr1;
-        sqr6 = sqr1;
-        sqr7 = sqr1;
-        sqr8 = sqr1;
-        sqr9 = sqr1;
+        sqr1 = new Square();
+        sqr2 = new Square(" ");
+        sqr3 = new Square();
+        sqr4 = new Square(" ");
+        sqr5 = new Square();
+        sqr6 = new Square(" ");
+        sqr7 = new Square();
+        sqr8 = new Square(" ");
+        sqr9 = new Square();
     }
 
     public String getSquare(int position) {
@@ -69,7 +69,16 @@ public class Board {
     public void printBoard() {
         for (int r = 1; r <= 5; r++) {
             if (r % 2 == 1) {
-                System.out.println(" " + getSquare((int)(1.5*r - 2)) + " | " + getSquare((int)(1.5*r - 1)) + " | " + getSquare((int)(1.5*r)) + " ");
+                for (int v = 1; v < 8; v++) {
+                    if (Math.abs(4 - v) == 3) {
+                        System.out.print(" ");
+                    } else if (v % 2 == 0) {
+                        System.out.print(getSquare((int)(1.5*(r+1)) + v/2 - 3));
+                    } else {
+                        System.out.print(" | ");
+                    }
+                }
+                System.out.println();
             } else {
                 System.out.println("---|---|---");
             }
@@ -77,7 +86,7 @@ public class Board {
     }
 
     public boolean winsByRow(String val) {
-        for (int r = 1; r <= 3; r++) {
+        for (int r = 1; r <= 7; r += 3) {
             if (getSquare(r).equals(val)) {
                 if (getSquare(r + 1).equals(val)) {
                     if (getSquare(r + 2).equals(val)) {
@@ -105,7 +114,7 @@ public class Board {
     public boolean winsByDiagonal(String val) {
         if (getSquare(1).equals(val)) {
             if (getSquare(5).equals(val)) {
-                if (getSquare(5).equals(val)) {
+                if (getSquare(9).equals(val)) {
                     return true;
                 }
             }

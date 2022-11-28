@@ -1,6 +1,10 @@
 public class Square {
     private String fill;
 
+
+    public Square() {
+        fill = " ";
+    }
     public Square(String fill) {
         this.fill = fill;
     }

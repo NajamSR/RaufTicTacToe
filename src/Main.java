@@ -5,9 +5,9 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         Board board1 = new Board();
         boolean xTurn = true;
+        board1.printBoard();
         int input = 0;
         while (!(board1.wins("x") || board1.wins("o") || !board1.boardContains(" "))) {
-            board1.printBoard();
             if (xTurn) {
                 System.out.println("Player X, please enter an integer from 1 to 9 to place your X on the board.");
             } else {
@@ -33,6 +33,7 @@ public class Main {
                 board1.setSquare(input, "o");
             }
             xTurn = !xTurn;
+            board1.printBoard();
         }
         if (board1.wins("x")) {
             System.out.println("Player X wins!");
