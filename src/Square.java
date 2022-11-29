@@ -9,15 +9,15 @@ public class Square {
         this.fill = fill;
     }
 
-    public String getSquareFill() {
-        return fill;
-    }
+
 
     public void setSquareFill(String newSquare) {
         fill = newSquare;
     }
 
-    public void printSquare() {
-        System.out.print(fill);
+    public String toString() {
+        String returnString = fill;
+        return returnString;
     }
+
 }

@@ -24,23 +24,23 @@ public class Board {
 
     public String getSquare(int position) {
         if (position == 1) {
-            return sqr1.getSquareFill();
+            return sqr1.toString();
         } else if (position == 2) {
-            return sqr2.getSquareFill();
+            return sqr2.toString();
         } else if (position == 3) {
-            return sqr3.getSquareFill();
+            return sqr3.toString();
         } else if (position == 4) {
-            return sqr4.getSquareFill();
+            return sqr4.toString();
         } else if (position == 5) {
-            return sqr5.getSquareFill();
+            return sqr5.toString();
         } else if (position == 6) {
-            return sqr6.getSquareFill();
+            return sqr6.toString();
         } else if (position == 7) {
-            return sqr7.getSquareFill();
+            return sqr7.toString();
         } else if (position == 8) {
-            return sqr8.getSquareFill();
+            return sqr8.toString();
         } else {
-            return sqr9.getSquareFill();
+            return sqr9.toString();
         }
     }
 
@@ -144,4 +144,6 @@ public class Board {
         }
         return false;
     }
+
+
 }
