@@ -7,7 +7,7 @@ public class Main {
         boolean xTurn = true;
         board1.printBoard();
         int input = 0;
-        while (!(board1.wins("x") || board1.wins("o") || !board1.boardContains(" "))) {
+        while (board1.winner().equals("none") && board1.boardContains(" ")) {
             if (xTurn) {
                 System.out.println("Player X, please enter an integer from 1 to 9 to place your X on the board.");
             } else {
@@ -35,12 +35,10 @@ public class Main {
             xTurn = !xTurn;
             board1.printBoard();
         }
-        if (board1.wins("x")) {
-            System.out.println("Player X wins!");
-        } else if (board1.wins("o")) {
-            System.out.println("Player O wins!");
-        } else {
+        if (board1.winner().equals("none")) {
             System.out.println("Tie game!");
+        } else {
+            System.out.println("Player " + board1.winner() + " wins!");
         }
     }
 }

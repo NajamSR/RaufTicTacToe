@@ -129,11 +129,13 @@ public class Board {
         return false;
     }
 
-    public boolean wins(String val) {
-        if (winsByRow(val) || winsByColumn(val) || winsByDiagonal(val)) {
-            return true;
+    public String winner() {
+        if (winsByRow("x") || winsByColumn("x") || winsByDiagonal("x")) {
+            return "X";
+        } else if (winsByRow("o") || winsByColumn("o") || winsByDiagonal("o")) {
+            return "O";
         }
-        return false;
+        return "none";
     }
 
     public boolean boardContains(String val) {
