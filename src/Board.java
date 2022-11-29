@@ -80,7 +80,7 @@ public class Board {
                 }
                 System.out.println();
             } else {
-                System.out.println("---|---|---");
+                System.out.print("---|---|---\n");
             }
         }
     }

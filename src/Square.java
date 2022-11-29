@@ -9,8 +9,6 @@ public class Square {
         this.fill = fill;
     }
 
-
-
     public void setSquareFill(String newSquare) {
         fill = newSquare;
     }
