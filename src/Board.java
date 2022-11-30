@@ -67,15 +67,13 @@ public class Board {
     }
 
     public void printBoard() {
-        for (int r = 1; r <= 5; r++) {
-            if (r % 2 == 1) {
-                for (int v = 1; v < 8; v++) {
-                    if (Math.abs(4 - v) == 3) {
-                        System.out.print(" ");
-                    } else if (v % 2 == 0) {
-                        System.out.print(getSquare((int)(1.5*(r+1)) + v/2 - 3));
+        for (int r = 0; r < 15; r += 3) {
+            if (r % 2 == 0) {
+                for (int v = 2; v < 7; v++) {
+                    if (v % 2 == 0) {
+                        System.out.print(" " + getSquare(r/2 + v/2) + " ");
                     } else {
-                        System.out.print(" | ");
+                        System.out.print("|");
                     }
                 }
                 System.out.println();
