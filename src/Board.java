@@ -66,6 +66,17 @@ public class Board {
         }
     }
 
+    public void carryOutTurn(boolean xTurn, int square) {
+        if (xTurn) {
+            setSquare(square, "x");
+        } else {
+            setSquare(square, "o");
+        }
+        System.out.println();
+        System.out.println();
+        printBoard();
+    }
+
     public void printBoard() {
         for (int r = 0; r < 15; r += 3) {
             if (r % 2 == 0) {

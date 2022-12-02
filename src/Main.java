@@ -17,9 +17,9 @@ public class Main {
                 System.out.println("Player O, please enter an integer from 1 to 9 to place your O on the board.");
             }
             boolean isLegal = false;
-            while (!isLegal) {
+            while (true) {
                 input = scan.nextInt();
-                isLegal = input / 10 == 0 && board1.getSquare(input).equals(" ");
+                isLegal = input > 0 && input < 10 && board1.getSquare(input).equals(" ");
                 if (isLegal) {
                     break;
                 }
@@ -30,16 +30,11 @@ public class Main {
                     System.out.println("That square is already full. Try again.");
                 }
             }
-            if (xTurn) {
-                board1.setSquare(input, "x");
-            } else {
-                board1.setSquare(input, "o");
-            }
+            board1.carryOutTurn(xTurn, input);
             xTurn = !xTurn;
-            board1.printBoard();
         }
         
-        /* prints winner of game*/
+        /* prints winner of game */
         if (board1.winner().equals("none")) {
             System.out.println("Tie game!");
         } else {
