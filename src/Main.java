@@ -5,8 +5,11 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         Board board1 = new Board();
         boolean xTurn = true;
-        board1.printBoard();
+        board1.printBoard(); // prints the initial board, which is blank
         int input = 0;
+        
+        
+        /* goes through the turns for each player */
         while (board1.winner().equals("none") && board1.boardContains(" ")) {
             if (xTurn) {
                 System.out.println("Player X, please enter an integer from 1 to 9 to place your X on the board.");
@@ -35,6 +38,8 @@ public class Main {
             xTurn = !xTurn;
             board1.printBoard();
         }
+        
+        /* prints winner of game*/
         if (board1.winner().equals("none")) {
             System.out.println("Tie game!");
         } else {
