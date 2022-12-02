@@ -2,13 +2,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        /* declare variables */
         Scanner scan = new Scanner(System.in);
         Board board1 = new Board();
         boolean xTurn = true;
         board1.printBoard(); // prints the initial board, which is blank
-        int input = 0;
-        
-        
+        int input;
+
+
         /* goes through the turns for each player */
         while (board1.winner().equals("none") && board1.boardContains(" ")) {
             if (xTurn) {
@@ -16,7 +17,9 @@ public class Main {
             } else {
                 System.out.println("Player O, please enter an integer from 1 to 9 to place your O on the board.");
             }
-            boolean isLegal = false;
+            boolean isLegal;
+            /* This loop asks the user for input, and the loop ends when the user has entered a legal move. If not, the program tells the
+             * user what they did wrong and tells them to try again. */
             while (true) {
                 input = scan.nextInt();
                 isLegal = input > 0 && input < 10 && board1.getSquare(input).equals(" ");
@@ -31,9 +34,9 @@ public class Main {
                 }
             }
             board1.carryOutTurn(xTurn, input);
-            xTurn = !xTurn;
+            xTurn = !xTurn; // reverses whose turn it is
         }
-        
+
         /* prints winner of game */
         if (board1.winner().equals("none")) {
             System.out.println("Tie game!");

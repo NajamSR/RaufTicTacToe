@@ -1,5 +1,8 @@
+/** The Board class represents the entire tic-tac-toe board.
+ * The board has 9 different squares */
 public class Board {
 
+    /* instance variables of class Square to keep track of each one in the board */
     private Square sqr1;
     private Square sqr2;
     private Square sqr3;
@@ -10,6 +13,7 @@ public class Board {
     private Square sqr8;
     private Square sqr9;
 
+    /** constructs empty tic-tac-toe board */
     public Board() {
         sqr1 = new Square();
         sqr2 = new Square(" ");
@@ -22,6 +26,7 @@ public class Board {
         sqr9 = new Square();
     }
 
+    /** returns the value of the square in the specified position */
     public String getSquare(int position) {
         if (position == 1) {
             return sqr1.toString();
@@ -44,6 +49,7 @@ public class Board {
         }
     }
 
+    /** changes the value of the square in the specified position to the specified new value */
     public void setSquare(int position, String newVal) {
         if (position == 1) {
             sqr1.setSquareFill(newVal);
@@ -66,6 +72,8 @@ public class Board {
         }
     }
 
+    /** This method performs the necessary steps for executing a player's turn,
+    changing the board to accommodate the player's move, and printing the result */
     public void carryOutTurn(boolean xTurn, int square) {
         if (xTurn) {
             setSquare(square, "x");
@@ -77,6 +85,7 @@ public class Board {
         printBoard();
     }
 
+    /** This method prints out the current state of the tic-tac-toe board */
     public void printBoard() {
         for (int r = 0; r < 15; r += 3) {
             if (r % 2 == 0) {
@@ -94,6 +103,8 @@ public class Board {
         }
     }
 
+    /** Helper method to the winner() method, determining
+    if val occurs on the board thrice in the same row */
     public boolean winsByRow(String val) {
         for (int r = 1; r <= 7; r += 3) {
             if (getSquare(r).equals(val)) {
@@ -107,6 +118,8 @@ public class Board {
         return false;
     }
 
+    /** Helper method to the winner() method, determining
+    if val occurs on the board thrice in the same column */
     public boolean winsByColumn(String val) {
         for (int r = 1; r <= 3; r++) {
             if (getSquare(r).equals(val)) {
@@ -120,6 +133,8 @@ public class Board {
         return false;
     }
 
+    /** Helper method to the winner() method, determining
+    if val occurs on the board thrice on the same diagonal */
     public boolean winsByDiagonal(String val) {
         if (getSquare(1).equals(val)) {
             if (getSquare(5).equals(val)) {
@@ -138,6 +153,7 @@ public class Board {
         return false;
     }
 
+    /** Returns the winner of the game, or "none" if no one has 3 in a row */
     public String winner() {
         if (winsByRow("x") || winsByColumn("x") || winsByDiagonal("x")) {
             return "X";
@@ -147,6 +163,7 @@ public class Board {
         return "none";
     }
 
+    /** Determines whether the specified value is in the board */
     public boolean boardContains(String val) {
         for (int s = 1; s <= 9; s++) {
             if (getSquare(s).equals(val)) {
