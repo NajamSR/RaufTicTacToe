@@ -2,6 +2,24 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        /* prints rules */
+        System.out.println("Hello, and welcome to tic-tac-toe!\n");
+        System.out.println("The game is played on a 3-by-3 board, like so...");
+        Board sampleBoard = new Board();
+        sampleBoard.printBoard();
+        System.out.println("...with each player taking turns putting either an X or an O on the board.\n");
+        System.out.println("The players will do this by typing an integer from 1 to 9. Each number corresponds to a certain square on the board.");
+        System.out.println("For example, if player X inputs a 2, the board position updates to this...");
+        sampleBoard.setSquare(2, "x");
+        sampleBoard.printBoard();
+        System.out.println("Then if player O types a 7, the board position updates to this...");
+        sampleBoard.setSquare(7, "o");
+        sampleBoard.printBoard();
+        System.out.println("Each player alternates typing in letters until either all 9 squares on the board are filled,");
+        System.out.println("or one player gets 3 in the same row, column, or diagonal. That person wins!\n");
+        System.out.println("So, without further ado, let's get started!\n\n");
+
         /* declare variables */
         Scanner scan = new Scanner(System.in);
         Board board1 = new Board();
