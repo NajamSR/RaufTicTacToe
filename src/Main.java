@@ -17,7 +17,7 @@ public class Main {
         sampleBoard.setSquare(7, "o");
         sampleBoard.printBoard();
         System.out.println("Each player alternates typing in letters until either all 9 squares on the board are filled,");
-        System.out.println("or one player gets 3 in the same row, column, or diagonal. That person wins!\n");
+        System.out.println("or one player gets 3 in the same row, column, or diagonal. That player wins!\n");
         System.out.println("So, without further ado, let's get started!\n\n");
 
         /* declare variables */
